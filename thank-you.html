@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You | Portfolio</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%232563eb'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='40' font-weight='700' fill='white'>D</text></svg>" />
+
+<style>
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: 'Poppins', sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+overflow:hidden;
+color:white;
+}
+
+/* Floating background circles */
+.circle{
+position:absolute;
+border-radius:50%;
+background:rgba(255,255,255,0.05);
+animation: float 15s infinite linear;
+}
+
+.circle:nth-child(1){width:200px;height:200px;top:10%;left:15%;}
+.circle:nth-child(2){width:300px;height:300px;bottom:10%;right:10%;animation-duration:20s;}
+.circle:nth-child(3){width:150px;height:150px;bottom:20%;left:5%;animation-duration:25s;}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-50px);}
+100%{transform:translateY(0px);}
+}
+
+/* Card */
+.container{
+text-align:center;
+padding:50px;
+border-radius:20px;
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(10px);
+box-shadow:0 10px 40px rgba(0,0,0,0.4);
+animation: fadeIn 1.5s ease;
+max-width:600px;
+}
+
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(30px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+h1{
+font-size:40px;
+margin-bottom:15px;
+}
+
+p{
+opacity:0.9;
+margin-bottom:30px;
+line-height:1.6;
+}
+
+/* Animated check icon */
+.checkmark{
+font-size:70px;
+margin-bottom:20px;
+animation: pop 1s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(0);}
+80%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+/* Button */
+button{
+padding:14px 30px;
+border:none;
+border-radius:50px;
+font-size:16px;
+cursor:pointer;
+background: linear-gradient(45deg,#00f2fe,#4facfe);
+color:white;
+transition:0.3s;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+}
+
+button:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* small animated stars */
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%,100%{opacity:0.2;}
+50%{opacity:1;}
+}
+
+footer{
+margin-top:20px;
+font-size:14px;
+opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background circles -->
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+<!-- Thank You Card -->
+<div class="container">
+<div class="checkmark">✔</div>
+<h1>Thank You!</h1>
+<p>
+Your message has been successfully sent.  
+I truly appreciate you contacting me.  
+I will get back to you as soon as possible.
+</p>
+
+<button onclick="goBack()">⬅ Back to Home</button>
+
+<footer>
+© 2026 Pixel Craft
+</footer>
+</div>
+
+<script>
+// Back button
+function goBack(){
+window.location.href = "index.html";
+}
+
+// Create stars
+for(let i=0;i<40;i++){
+let star = document.createElement("div");
+star.classList.add("star");
+star.style.top = Math.random()*100 + "%";
+star.style.left = Math.random()*100 + "%";
+star.style.animationDelay = Math.random()*3 + "s";
+document.body.appendChild(star);
+}
+</script>
+
+</body>
+</html>
